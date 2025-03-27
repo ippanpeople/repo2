@@ -1,0 +1,13 @@
+name: Repository dispatch receive
+
+on:
+  repository_dispatch:
+    types: [on-demand-test]
+
+jobs:
+  receive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print payload
+        run: |
+          echo "ENV = ${{ github.event.client_payload.env }}"
